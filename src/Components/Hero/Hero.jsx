@@ -10,7 +10,7 @@ import tg from "../../images/tg.png"
 import tgBlack from "../../images/tg-black.png"
 import TextType from '../TextType/TextType'
 import SplitText from '../SplitText/SplitText'
-import BlurText from '../Blurtext/Blurtext'
+import BlurText from '../Blurtext/BlurText'
 import { useDispatch, useSelector } from 'react-redux'
 function Hero() {
     const handleAnimationComplete = () => {
