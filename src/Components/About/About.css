@@ -1,0 +1,157 @@
+.about {
+    background-color: #F9FAFBFF;
+    padding-top: 96px;
+    padding-bottom: 96px;
+    /* margin-bottom: 96px; */
+}
+
+.about-black {
+    background-color: #030712FF;
+    padding-top: 96px;
+    padding-bottom: 96px;
+    /* margin-bottom: 96px; */
+}
+
+
+
+
+.about__title {
+    /* text-align: center; */
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: #E5E7EBFF;
+    padding: 4px 20px;
+    border-radius: 30px;
+    max-width: 130px;
+}
+
+.about__title-black {
+    /* text-align: center; */
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: #313A48FF;
+    color: white;
+    padding: 4px 20px;
+    border-radius: 30px;
+    max-width: 130px;
+}
+
+
+.about__main {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+
+.about__name {
+    margin-bottom: 15px;
+}
+
+.about__name-black {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.about__info {
+    color: #474747;
+    margin-bottom: 30px;
+}
+
+.about__info-black {
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.about__sub-title {
+    margin-bottom: 15px;
+}
+
+.about__sub-title-black {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.about__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    gap: 15px;
+
+
+}
+
+.about__item p {
+
+    color: #4b4b4b;
+
+}
+
+.about__item-black p {
+    color: rgb(180, 180, 180);
+}
+
+
+
+
+
+.about__last-black {
+    color: white;
+}
+
+
+
+@media(max-width:916px) {
+    .about__main {
+        flex-direction: column;
+        gap: 100px;
+        /* text-align: center; */
+
+        & .about__photo {
+            text-align: center;
+        }
+    }
+}
+
+
+@media(max-width:433px) {
+    .about__info {
+        font-size: 14px;
+    }
+    .about__info-black {
+        font-size: 14px;
+    }
+
+    .about__last {
+        font-size: 14px;
+    }
+    .about__last-black {
+        font-size: 14px;
+    }
+
+    .about__item p{
+        font-size: 14px;
+    }
+    .about__item-black p{
+        font-size: 14px;
+    }
+
+    .about__name{
+        font-size: 18px;
+    }
+    .about__name-black{
+        font-size: 18px;
+    }
+
+    .about__photo img{
+        width: 250px;
+    }
+}

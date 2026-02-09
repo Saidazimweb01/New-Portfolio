@@ -1,0 +1,102 @@
+.skill {
+    text-align: center;
+}
+
+.skill__circle {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 10px;
+}
+
+.skill__label {
+    color: #aaa;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+.skill {
+    text-align: center;
+}
+
+.skill__circle {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 12px;
+    position: relative;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.25));
+}
+
+/* Ichidagi content */
+.skill__inside {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+}
+
+.skill__percent {
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.skill__label {
+    color: #94a3b8;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.skill__label-black {
+    color: #fafafa;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+.skill {
+    text-align: center;
+}
+
+.skill__circle {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 12px;
+    position: relative;
+}
+
+.skill__inside {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill__icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 6px;
+}
+
+.skill__percent {
+   color: #3b82f6;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.skill__label {
+  color: #374151;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

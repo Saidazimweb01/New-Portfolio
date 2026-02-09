@@ -1,0 +1,150 @@
+.hero {
+    padding-top: 157px;
+
+    padding-bottom: 96px;
+}
+
+.hero-black {
+    padding-top: 157px;
+    padding-bottom: 96px;
+    background-color: #030712FF;
+}
+
+
+.hero__title {
+    font-size: 72px;
+}
+
+.hero__title-black {
+    font-size: 72px;
+    color: white;
+}
+
+.hero__box {
+    max-width: 768px;
+}
+
+.hero__info {
+    color: #4B5563FF;
+    font-size: 14px;
+    margin-bottom: 48px;
+}
+
+.hero__info-black {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-bottom: 48px;
+}
+
+.hero__media {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.hero__location {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: #626A77FF;
+    margin-bottom: 10px;
+}
+
+.hero__location-black {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+.hero__active {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: #626A77FF;
+    margin-bottom: 50px;
+
+}
+
+.hero__active-black {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 50px;
+
+}
+
+.hero__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero__inner {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media(max-width:988px) {
+    .hero__main {
+        flex-direction: column-reverse;
+        text-align: center;
+
+    }
+
+    .hero__info {
+        text-align: center;
+    }
+
+    .hero__info-black {
+        text-align: center;
+    }
+
+
+    .hero__inner {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        align-items: center;
+
+    }
+
+    .hero__media {
+        justify-content: center;
+    }
+
+}
+
+
+@media(max-width:695px) {
+    .hero__title {
+        font-size: 35px;
+    }
+
+    .hero__title-black {
+        font-size: 35px;
+    }
+
+    .hero__info {
+        font-size: 12px;
+    }
+
+    .hero__info-black {
+        font-size: 12px;
+    }
+}
+
+@media(max-width:380px) {
+    .hero__title {
+        font-size: 27px;
+    }
+
+    .hero__title-black {
+        font-size: 27px;
+    }
+
+}

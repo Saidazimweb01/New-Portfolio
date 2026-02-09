@@ -1,0 +1,147 @@
+.head__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    position: fixed;
+    width: 100%;
+    z-index: 111;
+    background-color: #fff;
+}
+
+.head-black {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background-color: #030712FF;
+    position: fixed;
+    width: 100%;
+    z-index: 111;
+
+}
+
+.head__list {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.head__with {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.head__item a {
+    color: #4B5563FF;
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 0.7;
+        text-decoration: underline;
+    }
+}
+
+.head__item-black a {
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 0.7;
+        text-decoration: underline;
+    }
+}
+
+.head__list {
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+}
+
+
+.head__modes {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    & .head__mode {
+        background-color: transparent;
+        border: none;
+        transition: 0.3s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+
+}
+
+
+.head__download {
+    color: white;
+    background-color: #101624FF;
+    padding: 6px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: none;
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.head__download-black {
+    color: #101624FF;
+    background-color: white;
+    padding: 6px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: none;
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+
+.head__burger-btn {
+    background-color: transparent;
+    border: none;
+    display: none;
+}
+
+.head__burger-btn-black {
+    background-color: transparent;
+    border: none;
+    display: none;
+}
+
+
+@media(max-width:660px) {
+    .head__logo img {
+        width: 70px;
+    }
+}
+
+@media(max-width:630px) {
+    .head__burger-btn {
+        display: inline-block;
+    }
+
+    .head__burger-btn-black {
+        display: inline-block;
+    }
+
+    .head__list {
+        display: none;
+    }
+
+    .head__modes {
+        display: none;
+    }
+}
