@@ -1,4 +1,5 @@
-import { MODE } from "./ActionsTypes";
+// import { isopen } from "./Actions";
+import { ISOPEN, MODE } from "./ActionsTypes";
 import { initialState } from "./InitialState";
 
 export default function reducer(state = initialState, action) {
@@ -9,6 +10,9 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state, mode: saved
             }
+
+        case ISOPEN:
+            return { ...state, isOpen: !state.isOpen }
         default:
             return state
     }
