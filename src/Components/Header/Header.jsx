@@ -6,7 +6,7 @@ import black from "../../images/black-mode.svg"
 import "./Header.css"
 import burger from "../../images/btn-burger.svg"
 import burgerBlack from "../../images/btn-burger-black.svg"
-import BlurText from '../Blurtext/Blurtext'
+import BlurText from '../Blurtext/BlurText'
 import { useDispatch, useSelector } from 'react-redux'
 import { MODE } from '../../Store/ActionsTypes'
 
