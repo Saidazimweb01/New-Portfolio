@@ -115,7 +115,7 @@ function Header() {
 
               <ul className="head-open__list">
                 <li className={mode ? "head-open__item-black" : "head-open__item"}>
-                  <a href="#about">
+                  <a onClick={() => dispatch({ type: ISOPEN })} href="#about">
                     {/* About */}
                     <BlurText
                       text="About"
@@ -128,7 +128,7 @@ function Header() {
                   </a>
                 </li>
                 <li className={mode ? "head-open__item-black" : "head-open__item"}>
-                  <a href="#work">
+                  <a onClick={() => dispatch({ type: ISOPEN })} href="#work">
 
                     <BlurText
                       text="Work"
@@ -141,7 +141,7 @@ function Header() {
                   </a>
                 </li>
                 <li className={mode ? "head-open__item-black" : "head-open__item"}>
-                  <a href="#skill">
+                  <a onClick={() => dispatch({ type: ISOPEN })} href="#skill">
                     <BlurText
                       text="Skills"
                       delay={120}
@@ -153,7 +153,7 @@ function Header() {
                   </a>
                 </li>
                 <li className={mode ? "head-open__item-black" : "head-open__item"}>
-                  <a href="#contact">
+                  <a onClick={() => dispatch({ type: ISOPEN })} href="#contact">
                     <BlurText
                       text="Contact"
                       delay={120}
@@ -168,7 +168,7 @@ function Header() {
               {/* <hr /> */}
               <div className="head__bottom">
                 <p className={mode ? "head__switch-black" : "head__switch"}>Switch to mode: <button className='head-open__mode' onClick={() => dispatch({ type: MODE })}><img src={mode ? black : modee} alt="" /></button></p>
-                <button className={mode ? "head-open__download-black" : "head-open__download"}>Download CV</button>
+                <button className={mode ? "head-open__download-black" : "head-open__download"} onClick={() => dispatch({ type: ISOPEN })}>Download CV</button>
               </div>
             </div>
           )
