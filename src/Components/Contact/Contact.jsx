@@ -12,7 +12,8 @@ import git from "../../images/git.svg"
 import gitBlack from "../../images/git-black.svg"
 import ShinyText from '../ShinyText/ShinyText'
 import SplitText from '../SplitText/SplitText'
-import BlurText from '../Blurtext/BlurText'
+import BlurText from '../BlurText/BlurText'
+
 import { useSelector } from 'react-redux'
 function Contact() {
     const emails = "saidazimxonakmalxonov30@gmail.com"
