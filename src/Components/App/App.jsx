@@ -14,14 +14,17 @@ import TextType from '../TextType/TextType'
 // import Antigravity from '../Antigravity/Antigravity'
 import ClickSpark from '../ClickSpark/ClickSpark'
 import ScrollStack, { ScrollStackItem } from '../ScrollStack/ScrollStack'
+import { useSelector } from 'react-redux'
 // import SplashCursor from '../SplashCursor/SplashCursor'
 
 function App() {
+
+  const mode = useSelector((state) => state.mode)
   return (
     <>
-      
+
       <ClickSpark
-        sparkColor='#000000ff'
+        sparkColor={mode ? "#fff" : "#000000ff"}
         sparkSize={10}
         sparkRadius={15}
         sparkCount={8}

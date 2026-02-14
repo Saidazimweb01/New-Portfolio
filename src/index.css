@@ -177,3 +177,8 @@ ol {
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+
+
+.CircularProgressbar-path {
+  transition: stroke-dashoffset 2s ease-in-out !important;
+}

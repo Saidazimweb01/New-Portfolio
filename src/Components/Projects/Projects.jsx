@@ -8,6 +8,7 @@ import meal from "../../images/meal.png"
 import quiz from "../../images/quiz.png"
 import todo from "../../images/todo.png"
 import arqon from "../../images/arqon.png"
+import no from "../../images/no.webp"
 import { motion } from 'framer-motion';
 import "./Projects.css"
 import { useNavigate } from 'react-router-dom'
@@ -81,9 +82,9 @@ function Projects() {
                     </p>
                     <ul className="works__list">
                         <motion.li
-                            variants={cardVariants}     
-                            initial="hidden"             
-                            whileInView="visible"       
+                            variants={cardVariants}
+                            initial="hidden"
+                            whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
                             className={mode ? "works__item-black" : "works__item"}>
                             <div className={mode ? "works__photo-black" : "works__photo"}>
@@ -193,37 +194,7 @@ function Projects() {
                                 </div>
                             </div>
                         </motion.li>
-                        <motion.li
-                            variants={cardVariants}      // Variantni ulaymiz
-                            initial="hidden"             // Boshlang'ich holat: hidden
-                            whileInView="visible"        // Ko'ringanda: visible
-                            viewport={{ once: true, amount: 0.2 }}
-                            className={mode ? "works__item-black" : "works__item"}>
-                            <div className={mode ? "works__photo-black" : "works__photo"}>
-                                <img width={480} src={arqon} alt="" />
-                            </div>
-                            <div className={mode ? "works__content-black" : "works__content"}>
-                                <h3 className={mode ? "works__name-black" : "works__name"}>
-                                    Tug of war</h3>
-                                <p className={mode ? "works__info-black" : "works__info"}>
-                                    This project created for battle with your friend
-                                </p>
-                                <div className="works__texnologies">
-                                    <button className={mode ? "works__btns-black" : "works__btns"}>React</button>
-                                    <button className={mode ? "works__btns-black" : "works__btns"}>Git</button>
-                                    <button className={mode ? "works__btns-black" : "works__btns"}>CSS</button>
-                                    <button className={mode ? "works__btns-black" : "works__btns"}>HTML</button>
-                                    {/* <button className='works__btns'>Api</button> */}
-                                    <button className={mode ? "works__btns-black" : "works__btns"}>Json</button>
-                                    <button className={mode ? "works__btns-black" : "works__btns"}>Context</button>
-                                </div>
 
-                                <div className="works__more">
-                                    <a className='works__view' target='_blank' href="https://quiz-appp-react.netlify.app/"><img src={view} alt="" /></a>
-                                    <a className='works__code' target='_blank' href="https://github.com/Saidazimweb01/React-Quiz-app"><img src={code} alt="" /></a>
-                                </div>
-                            </div>
-                        </motion.li>
                         <motion.li
                             variants={cardVariants}      // Variantni ulaymiz
                             initial="hidden"             // Boshlang'ich holat: hidden
@@ -231,10 +202,10 @@ function Projects() {
                             viewport={{ once: true, amount: 0.2 }}
                             className={mode ? "works__item-black" : "works__item"}>
                             <div className={mode ? "works__photo-black" : "works__photo"}>
-                                <img width={480}  src={quiz} alt="" />
+                                <img width={480} src={no} alt="" />
                             </div>
                             <div className={mode ? "works__content-black" : "works__content"}>
-                                <h3 className={mode ? "works__name-black" : "works__name"}>React quiz app</h3>
+                                <h3 className={mode ? "works__name-black" : "works__name"}>React quiz app "BETA"</h3>
                                 <p className={mode ? "works__info-black" : "works__info"}>
                                     This project created for learn new skills
                                 </p>
@@ -260,7 +231,7 @@ function Projects() {
                             viewport={{ once: true, amount: 0.2 }}
                             className={mode ? "works__item-black" : "works__item"}>
                             <div className={mode ? "works__photo-black" : "works__photo"}>
-                                <img width={520}  src={todo} alt="" />
+                                <img width={480} src={no} alt="" />
                             </div>
                             <div className={mode ? "works__content-black" : "works__content"}>
                                 <h3 className={mode ? "works__name-black" : "works__name"}>Todo app</h3>
@@ -279,6 +250,66 @@ function Projects() {
                                 <div className="works__more">
                                     <a className='works__view' target='_blank' href="https://todo-project-s.netlify.app/"><img src={view} alt="" /></a>
                                     <a className='works__code' target='_blank' href="https://github.com/Saidazimweb01/Todo-list-with-React-js"><img src={code} alt="" /></a>
+                                </div>
+                            </div>
+                        </motion.li>
+                        <motion.li
+                            variants={cardVariants}      // Variantni ulaymiz
+                            initial="hidden"             // Boshlang'ich holat: hidden
+                            whileInView="visible"        // Ko'ringanda: visible
+                            viewport={{ once: true, amount: 0.2 }}
+                            className={mode ? "works__item-black" : "works__item"}>
+                            <div className={mode ? "works__photo-black" : "works__photo"}>
+                                <img width={480} src={no} alt="" />
+                            </div>
+                            <div className={mode ? "works__content-black" : "works__content"}>
+                                <h3 className={mode ? "works__name-black" : "works__name"}>Todo modern with Archives</h3>
+                                <p className={mode ? "works__info-black" : "works__info"}>
+                                    This project created for Todo modern
+                                </p>
+                                <div className="works__texnologies">
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>React</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>Git</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>CSS</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>HTML</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>Api</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>Json</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>Context</button>
+                                </div>
+
+                                <div className="works__more">
+                                    <a className='works__view' target='_blank' href="https://archives-26.netlify.app/"><img src={view} alt="" /></a>
+                                    <a className='works__code' target='_blank' href="https://github.com/Saidazimweb01/Archive"><img src={code} alt="" /></a>
+                                </div>
+                            </div>
+                        </motion.li>
+                        <motion.li
+                            variants={cardVariants}      // Variantni ulaymiz
+                            initial="hidden"             // Boshlang'ich holat: hidden
+                            whileInView="visible"        // Ko'ringanda: visible
+                            viewport={{ once: true, amount: 0.2 }}
+                            className={mode ? "works__item-black" : "works__item"}>
+                            <div className={mode ? "works__photo-black" : "works__photo"}>
+                                <img width={480} src={no} alt="" />
+                            </div>
+                            <div className={mode ? "works__content-black" : "works__content"}>
+                                <h3 className={mode ? "works__name-black" : "works__name"}>Usepopcorn find the films "BETA"</h3>
+                                <p className={mode ? "works__info-black" : "works__info"}>
+                                    This project created for Films
+                                </p>
+                                <div className="works__texnologies">
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>React</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>Git</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>CSS</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>HTML</button>
+                                    <button className={mode ? "works__btns-black" : "works__btns"}>Api</button>
+                                    {/* <button className={mode ? "works__btns-black" : "works__btns"}>Json</button> */}
+                                    {/* <button className={mode ? "works__btns-black" : "works__btns"}>Context</button> */}
+                                </div>
+
+                                <div className="works__more">
+                                    <a className='works__view' target='_blank' href="https://usepopcorn-26.netlify.app/"><img src={view} alt="" /></a>
+                                    <a className='works__code' target='_blank' href="https://github.com/Saidazimweb01/Usepopcorn/"><img src={code} alt="" /></a>
                                 </div>
                             </div>
                         </motion.li>
