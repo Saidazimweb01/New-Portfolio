@@ -119,7 +119,7 @@ function Projects() {
                                 <img width={480} src={shop} alt="" />
                             </div>
                             <div className={mode ? "works__content-black" : "works__content"}>
-                                <h3 className={mode ? "works__name-black" : "works__name"}>Shop-co</h3>
+                                <h3 className={mode ? "works__name-black" : "works__name"}>Shop-co "BETA"</h3>
                                 <p className={mode ? "works__info-black" : "works__info"}>
                                     This project created for shopping
                                 </p>
