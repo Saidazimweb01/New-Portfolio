@@ -263,7 +263,7 @@ function Projects() {
                                 <img width={480} src={no} alt="" />
                             </div>
                             <div className={mode ? "works__content-black" : "works__content"}>
-                                <h3 className={mode ? "works__name-black" : "works__name"}>Todo modern with Archives</h3>
+                                <h3 className={mode ? "works__name-black" : "works__name"}>Todo modern with Archives "BETA"</h3>
                                 <p className={mode ? "works__info-black" : "works__info"}>
                                     This project created for Todo modern
                                 </p>
