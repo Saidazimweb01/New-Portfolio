@@ -1,61 +1,138 @@
-.skills__box {
-    /* background: #ffffff; */
-    padding: 70px 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 45px;
-    justify-items: center;
-    width: 100%;
+/* ═══════════════════════════════════════
+   SKILLS — CSS VARIABLES
+═══════════════════════════════════════ */
+.skills {
+  /* Dark mode defaults */
+  --sk-bg:          #0a0a0f;
+  --sk-bg-card:     rgba(255,255,255,0.03);
+  --sk-border:      rgba(255,255,255,0.06);
+  --sk-border-h:    rgba(99,102,241,0.5);
+  --sk-text:        #f1f0ff;
+  --sk-muted:       #6b6a8a;
+  --sk-badge-bg:    rgba(99,102,241,0.12);
+  --sk-badge-text:  #a5b4fc;
+  --sk-accent:      #6366f1;
+  --sk-accent2:     #f472b6;
+  --sk-trail:       rgba(255,255,255,0.06);
+  --sk-path:        #6366f1;
+  --sk-percent:     #a5b4fc;
+  --sk-glow:        rgba(99,102,241,0.20);
+
+  padding: 100px 0 110px;
+  background: var(--sk-bg);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.35s;
 }
 
+/* Light mode */
+.skills.skills--light {
+  --sk-bg:          #f7f7fb;
+  --sk-bg-card:     rgba(0,0,0,0.025);
+  --sk-border:      rgba(0,0,0,0.06);
+  --sk-border-h:    rgba(99,102,241,0.35);
+  --sk-text:        #13121f;
+  --sk-muted:       #7a798c;
+  --sk-badge-bg:    rgba(99,102,241,0.08);
+  --sk-badge-text:  #4f46e5;
+  --sk-accent:      #4f46e5;
+  --sk-accent2:     #ec4899;
+  --sk-trail:       rgba(0,0,0,0.06);
+  --sk-path:        #4f46e5;
+  --sk-percent:     #4f46e5;
+  --sk-glow:        rgba(79,70,229,0.12);
+}
 
+/* Subtle bg pattern */
+.skills::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--sk-glow) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(244,114,182,0.07) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════
+   SECTION HEADER
+═══════════════════════════════════════ */
+.skills__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.skills__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 16px;
+  background: var(--sk-badge-bg);
+  border: 1px solid var(--sk-border-h);
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--sk-badge-text);
+  margin-bottom: 16px;
+}
+
+.skills__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sk-accent);
+  animation: skPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes skPulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.7); }
+}
 
 .skills__title {
-    text-align: center;
-    margin: 0 auto;
-    padding: 6px 16px;
-    background-color: #E5E7EBFF;
-    max-width: 95px;
-    font-weight: 400;
-    border-radius: 30px;
-    margin-bottom: 15px;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  color: var(--sk-text);
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
 }
 
-.skills__title-black {
-    text-align: center;
-    margin: 0 auto;
-    padding: 6px 16px;
-    background-color: #374151FF;
-    max-width: 95px;
-    font-weight: 400;
-    border-radius: 30px;
-    margin-bottom: 15px;
-    color: white;
+.skills__sub {
+  font-size: 15px;
+  color: var(--sk-muted);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.65;
 }
 
-.skills {
-    padding-bottom: 96px;
-    padding-top: 96px;
-
+/* ═══════════════════════════════════════
+   SKILLS GRID
+═══════════════════════════════════════ */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 0 4px;
 }
 
-.skills-black {
-    padding-bottom: 96px;
-    padding-top: 96px;
-    background-color: #111827FF;
-
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 600px) {
+  .skills {
+    padding: 72px 0 80px;
+  }
+  .skills__grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 14px;
+  }
 }
 
-
-.skills__text {
-    text-align: center;
-    margin-bottom: 20px;
-
-}
-
-.skills__text-black {
-    text-align: center;
-    margin-bottom: 20px;
-    color: white;
-
+@media (max-width: 380px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

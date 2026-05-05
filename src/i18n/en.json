@@ -1,0 +1,71 @@
+{
+    "header": {
+        "about": "About",
+        "work": "Work",
+        "skills": "Skills",
+        "contact": "Contact",
+        "download": "Download CV",
+        "mode": "Switch to mode:"
+    },
+    "works": {
+        "title": "Works",
+        "subtitle": "Some of the noteworthy projects I have built:",
+        "see_more": "See more",
+        "projects": {
+            "weather": {
+                "name": "Weather app",
+                "description": "This project was created to check the weather."
+            },
+            "med": {
+                "name": "Med-clinic",
+                "description": "This project was created for a medical clinic."
+            },
+            "meal": {
+                "name": "Meals recipes",
+                "description": "This project was created to learn new meal recipes."
+            }
+        }
+    },
+    "hero": {
+        "title": [
+            "Hi I'm Said",
+            "I'm developer",
+            "I love clean code"
+        ],
+        "experience": "Year experience",
+        "projects": "Projects",
+        "contact": "Contact",
+        "text": "I'm a Frontend developer (React.js, Typescript, Js ....) with a focus on creating (and occasionally designing)exceptional digital experiences that are fast,accessible, visually appealing, and responsive. Even thoughI have been creating web applications for over 2 years, I still love itas if it was something new.",
+        "loc": "Uzbekistan, Tashkent",
+        "project": "Available for new projects"
+    },
+    "skills": {
+        "title": "Skills",
+        "subtitle": "The skills, tools and technologies I am really good at:"
+    },
+    "about": {
+        "title": "About me",
+        "subtitle": "Curious about me? Here you have it:",
+        "texts": [
+            "I’m Said Akmalxonov, a passionate Frontend Developer with a strong focus on building modern, responsive, and user-friendly web applications. I enjoy turning complex problems into simple, beautiful, and intuitive interfaces. Clean code, performance, and great user experience are always my top priorities.",
+            "I studied at PDP School for 2 years, where I built a solid foundation in web development and worked on various real-world projects. During this time, I developed strong skills in JavaScript and modern frontend technologies, constantly improving my problem-solving and development workflow.",
+            "My main tech stack includes React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, SASS/SCSS, Tailwind CSS, Git, and GitHub. I’m comfortable working with component-based architecture, responsive design, and writing maintainable, scalable code.",
+            "I’m always eager to learn new technologies and stay up to date with the latest trends in frontend development. I enjoy working on projects from idea to final product and continuously improving both my technical and soft skills.",
+            "When I’m not coding, I spend time learning new tools, exploring tech communities, and building personal projects to sharpen my skills."
+        ],
+        "innertitle": "Quick facts about me:",
+        "innertexts": [
+            "Frontend Developer",
+            "PDP School graduate (2 years)",
+            "Strong with React & modern JavaScript",
+            "Always learning something new"
+        ],
+        "lasttext": "I’m open to freelance opportunities and exciting projects — feel free to reach out. Let’s build something great together!"
+    },
+    "foot": {
+        "title": "Get in touch",
+        "desc": "What’s next? Feel free to reach out to me if you're looking for a developer, have a query, or simply want to connect.",
+        "social": "You may also find me on these platforms!",
+        "sub": "2026 | Designed and coded with ❤️️ by"
+    }
+}

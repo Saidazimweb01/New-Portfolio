@@ -1,179 +1,178 @@
-import React from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import logo from "../../images/logo.svg"
 import logoBlack from "../../images/logo-black.svg"
-import modee from "../../images/mode.svg"
-import black from "../../images/black-mode.svg"
-import "./Header.css"
-import burger from "../../images/btn-burger.svg"
-import burgerBlack from "../../images/btn-burger-black.svg"
-import BlurText from '../BlurText/BlurText'
-import close from "../../images/close.svg"
-import closeBlack from "../../images/close-black.svg"
-
 import { useDispatch, useSelector } from 'react-redux'
 import { ISOPEN, MODE } from '../../Store/ActionsTypes'
-import { log } from 'three'
+import { useTranslation } from 'react-i18next'
+import './Header.css'
 
 function Header() {
-
-  const handleAnimationCompletee = () => {
-    console.log('Animation completed!');
-  };
-
-
-
-  const mode = useSelector((state) => state.mode)
+  const { t, i18n } = useTranslation()
+  const mode = useSelector((state) => state.mode)   // true = Light, false = Dark
   const open = useSelector((state) => state.isOpen)
   const dispatch = useDispatch()
 
-  console.log(mode);
+  const [scrollProg, setScrollProg] = useState(0)
+  const [scrolled, setScrolled] = useState(false)
+  const [closing, setClosing] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.body.scrollHeight - window.innerHeight
+      setScrollProg(max > 0 ? (window.scrollY / max) * 100 : 0)
+      setScrolled(window.scrollY > 8)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const closeDrawer = useCallback(() => {
+    setClosing(true)
+    setTimeout(() => { dispatch({ type: ISOPEN }); setClosing(false) }, 240)
+  }, [dispatch])
+
+  const handleNavClick = useCallback(() => {
+    if (open) closeDrawer()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [open, closeDrawer])
+
+  const handleBurger = () => open ? closeDrawer() : dispatch({ type: ISOPEN })
+
+  const navLinks = [
+    { href: '#about', label: t('header.about') },
+    { href: '#work', label: t('header.work') },
+    { href: '#skill', label: t('header.skills') },
+    { href: '#contact', label: t('header.contact') },
+  ]
+
+  // mode = true  → Light (oq fon)  → logoBlack (qora logo)
+  // mode = false → Dark  (qora fon) → logo (oq/rangli logo)
+  const currentLogo = mode ? logo : logoBlack
+
+  // CSS class helpers
+  const hdrClass = [
+    'hdr',
+    mode && 'hdr--light',
+    scrolled && 'hdr--scrolled',
+  ].filter(Boolean).join(' ')
+
+  const drawerClass = [
+    'hdr__drawer',
+    mode && 'hdr__drawer--light',   // ← key fix: drawer gets light tokens
+    closing && 'hdr__drawer--closing',
+  ].filter(Boolean).join(' ')
+
+  const burgerClass = [
+    'hdr__burger',
+    open && 'hdr__burger--open',
+  ].filter(Boolean).join(' ')
+
+  const LangSelect = () => (
+    <div className="hdr__lang-wrap">
+      <select
+        className="hdr__lang"
+        value={i18n.language}
+        onChange={(e) => {
+          const lang = e.target.value
+          i18n.changeLanguage(lang)
+          localStorage.setItem("lang", lang)
+        }}
+      >
+        <option value="uz">UZ</option>
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
+  )
 
   return (
     <>
-      <header className={mode ? "head-black" : "head"}>
-        <div className="container">
-          <div className="head__inner">
-            <a className='head__logo' href="#">
-              <img src={mode ? logoBlack : logo} alt="logo profile" />
-            </a>
+      <header className={hdrClass}>
+        <div className="hdr__inner">
 
-            <div className='head__with'>
-              <ul className="head__list">
-                <li className={mode ? "head__item-black" : "head__item"}>
-                  <a href="#about">
-                    {/* About */}
-                    <BlurText
-                      text="About"
-                      delay={120}
-                      animateBy="letters"
-                      direction="bottom"
-                      onAnimationComplete={handleAnimationCompletee}
-                      className="text-2xl mb-8"
-                    />
-                  </a>
-                </li>
-                <li className={mode ? "head__item-black" : "head__item"}>
-                  <a href="#work">
+          {/* Logo */}
+          <a className="hdr__logo" href="#">
+            <img
+              src={currentLogo}
+              alt="logo"
 
-                    <BlurText
-                      text="Work"
-                      delay={120}
-                      animateBy="letters"
-                      direction="bottom"
-                      onAnimationComplete={handleAnimationCompletee}
-                      className="text-2xl mb-8"
-                    />
-                  </a>
-                </li>
-                <li className={mode ? "head__item-black" : "head__item"}>
-                  <a href="#skill">
-                    <BlurText
-                      text="Skills"
-                      delay={120}
-                      animateBy="letters"
-                      direction="bottom"
-                      onAnimationComplete={handleAnimationCompletee}
-                      className="text-2xl mb-8"
-                    />
-                  </a>
-                </li>
-                <li className={mode ? "head__item-black" : "head__item"}>
-                  <a href="#contact">
-                    <BlurText
-                      text="Contact"
-                      delay={120}
-                      animateBy="letters"
-                      direction="bottom"
-                      onAnimationComplete={handleAnimationCompletee}
-                      className="text-2xl mb-8"
-                    />
-                  </a>
-                </li>
-              </ul>
+            />
+          </a>
 
-              <div className="head__modes">
-                <button className='head__mode' onClick={() => dispatch({ type: MODE })}><img src={mode ? black : modee} alt="" /></button>
-                <button className={mode ? "head__download-black" : "head__download"}>Download CV</button>
-              </div>
-              <button className={mode ? "head__burger-btn-black" : "head__burger-btn"} onClick={() => dispatch({ type: ISOPEN })}><img src={mode ? burgerBlack : burger} alt="" /></button>
-            </div>
+          {/* Desktop nav */}
+          <nav className="hdr__nav">
+            {navLinks.map(({ href, label }) => (
+              <a key={href} href={href} className="hdr__nav-link">{label}</a>
+            ))}
+          </nav>
+
+          {/* Right controls */}
+          <div className="hdr__right">
+            {/* Theme toggle */}
+            <button className="hdr__icon-btn" onClick={() => dispatch({ type: MODE })} aria-label="Toggle theme">
+              <span className="hdr__icon-btn-icon">{mode ? '🌙' : '☀️'}</span>
+            </button>
+
+            {/* Language (hidden on mobile via CSS) */}
+            <LangSelect />
+
+            {/* Download (hidden on mobile via CSS) */}
+            <button className="hdr__dl-btn">{t('header.download')}</button>
+
+            {/* Burger — visible only on mobile */}
+            <button className={burgerClass} onClick={handleBurger} aria-label="Menu">
+              <span /><span /><span />
+            </button>
           </div>
-
         </div>
 
-        {
-          open && (
-            <div className={mode ? "head__open-black" : "head__open"}>
-              <div className="head__top">
-                <img src={mode ? logoBlack : logo} alt="" />
-
-                <button className='head__close' onClick={() => dispatch({ type: ISOPEN })}><img src={mode ? closeBlack : close} alt="" /></button>
-                {/* <hr /> */}
-
-
-              </div>
-
-              <ul className="head-open__list">
-                <li className={mode ? "head-open__item-black" : "head-open__item"}>
-                  <a onClick={() => dispatch({ type: ISOPEN })} href="#about">
-                    {/* About */}
-                    <BlurText
-                      text="About"
-                      delay={120}
-                      animateBy="letters"
-                      direction="bottom"
-                      onAnimationComplete={handleAnimationCompletee}
-                      className="text-2xl mb-8"
-                    />
-                  </a>
-                </li>
-                <li className={mode ? "head-open__item-black" : "head-open__item"}>
-                  <a onClick={() => dispatch({ type: ISOPEN })} href="#work">
-
-                    <BlurText
-                      text="Work"
-                      delay={120}
-                      animateBy="letters"
-                      direction="bottom"
-                      onAnimationComplete={handleAnimationCompletee}
-                      className="text-2xl mb-8"
-                    />
-                  </a>
-                </li>
-                <li className={mode ? "head-open__item-black" : "head-open__item"}>
-                  <a onClick={() => dispatch({ type: ISOPEN })} href="#skill">
-                    <BlurText
-                      text="Skills"
-                      delay={120}
-                      animateBy="letters"
-                      direction="bottom"
-                      onAnimationComplete={handleAnimationCompletee}
-                      className="text-2xl mb-8"
-                    />
-                  </a>
-                </li>
-                <li className={mode ? "head-open__item-black" : "head-open__item"}>
-                  <a onClick={() => dispatch({ type: ISOPEN })} href="#contact">
-                    <BlurText
-                      text="Contact"
-                      delay={120}
-                      animateBy="letters"
-                      direction="bottom"
-                      onAnimationComplete={handleAnimationCompletee}
-                      className="text-2xl mb-8"
-                    />
-                  </a>
-                </li>
-              </ul>
-              {/* <hr /> */}
-              <div className="head__bottom">
-                <p className={mode ? "head__switch-black" : "head__switch"}>Switch to mode: <button className='head-open__mode' onClick={() => dispatch({ type: MODE })}><img src={mode ? black : modee} alt="" /></button></p>
-                <button className={mode ? "head-open__download-black" : "head-open__download"} onClick={() => dispatch({ type: ISOPEN })}>Download CV</button>
-              </div>
-            </div>
-          )
-        }
+        {/* Scroll progress bar */}
+        <div className="hdr__prog" style={{ width: `${scrollProg}%` }} />
       </header>
+
+      {/* Mobile Drawer */}
+      {open && (
+        <div className={drawerClass}>
+          <div className="hdr__drawer-top">
+            <img src={currentLogo} alt="logo" className="hdr__drawer-logo" />
+            <button className="hdr__drawer-close" onClick={closeDrawer} aria-label="Close">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M2 2l14 14M16 2L2 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+
+          <nav className="hdr__drawer-nav">
+            {navLinks.map(({ href, label }, i) => (
+              <a
+                key={href}
+                href={href}
+                className="hdr__drawer-link"
+                style={{ animationDelay: `${i * 60}ms` }}
+                onClick={handleNavClick}
+              >
+                <span className="hdr__drawer-link-num">0{i + 1}</span>
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="hdr__drawer-footer">
+            <div className="hdr__drawer-row">
+              <span>{t('header.mode')}</span>
+              <button className="hdr__icon-btn" onClick={() => dispatch({ type: MODE })} aria-label="Toggle theme">
+                <span className="hdr__icon-btn-icon">{mode ? '🌙' : '☀️'}</span>
+              </button>
+            </div>
+
+            <LangSelect />
+
+            <button className="hdr__dl-btn hdr__dl-btn--full" onClick={closeDrawer}>
+              {t('header.download')}
+            </button>
+          </div>
+        </div>
+      )}
     </>
   )
 }

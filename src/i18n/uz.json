@@ -1,0 +1,71 @@
+{
+    "header": {
+        "about": "Men haqimda",
+        "work": "Ishlarim",
+        "skills": "Ko'nikmalar",
+        "contact": "Aloqa",
+        "download": "CV-ni yuklab olish",
+        "mode": "Rejimni o'zgartirish:"
+    },
+    "works": {
+        "title": "Ishlar",
+        "subtitle": "Men qurgan diqqatga sazovor loyihalarning ba'zilari:",
+        "see_more": "Ko'proq ko'rish",
+        "projects": {
+            "weather": {
+                "name": "Ob-havo ilovasi",
+                "description": "Ushbu loyiha ob-havoni bilish uchun yaratilgan."
+            },
+            "med": {
+                "name": "Med-klinika",
+                "description": "Ushbu loyiha tibbiy klinika uchun yaratilgan."
+            },
+            "meal": {
+                "name": "Taom retseptlari",
+                "description": "Ushbu loyiha yangi taom retseptlarini o'rganish uchun yaratilgan."
+            }
+        }
+    },
+    "hero": {
+        "title": [
+            "Salom, men Saidman",
+            "Men dasturchiman",
+            "Toza kod yozishni yaxshi ko'raman"
+        ],
+        "experience": "Yil tajriba",
+        "projects": "Loyihalar",
+        "contact":"Bog'lanish",
+        "text": "Men Frontend dasturchiman (React.js, Typescript, Js ....). Mening asosiy e'tiborim tezkor, qulay (accessible), ko'rinishi jozibali va moslashuvchan (responsive) bo'lgan ajoyib raqamli tajribalarni yaratishga (va ba'zan loyihalashga) qaratilgan. Veb-ilovalar yaratish bilan 2 yildan ortiq vaqt davomida shug'ullanayotgan bo'lsam ham, uni xuddi yangi narsadek yaxshi ko'raman.",
+        "loc": "O'zbekiston, Toshkent",
+        "project": "Yangi loyihalar uchun ochiqman"
+    },
+    "skills": {
+        "title": "Ko'nikmalar",
+        "subtitle": "Men yaxshi o'zlashtirgan ko'nikmalar, asboblar va texnologiyalar:"
+    },
+    "about": {
+        "title": "Men haqimda",
+        "subtitle": "Men haqimda qiziqyapsizmi? Marhamat:",
+        "texts": [
+            "Men Said Akmalxonov, zamonaviy, moslanuvchan (responsive) va foydalanuvchi uchun qulay veb-ilovalarni yaratishga ishtiyoqi baland Frontend dasturchiman. Murakkab muammolarni oddiy, chiroyli va tushunarli interfeyslarga aylantirishdan zavqlanaman. Toza kod, yuqori unumdorlik va mukammal foydalanuvchi tajribasi (UX) doimo mening ustuvor vazifalarimdir.",
+            "Men PDP maktabida 2 yil davomida tahsil oldim, u yerda veb-dasturlash bo'yicha mustahkam poydevor yaratdim va turli real loyihalar ustida ishladim. Ushbu davr mobaynida JavaScript va zamonaviy frontend texnologiyalari bo'yicha kuchli ko'nikmalarni rivojlantirdim, muammolarni hal qilish va ish jarayonimni doimiy ravishda takomillashtirib bordim.",
+            "Mening asosiy texnologik stackim: React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, SASS/SCSS, Tailwind CSS, Git va GitHub. Men komponentlarga asoslangan arxitektura, moslanuvchan dizayn va kengayuvchan kod yozishda tajribaga egaman.",
+            "Men har doim yangi texnologiyalarni o'rganishga va frontend olamidagi so'nggi tendentsiyalardan xabardor bo'lishga intilaman. Loyihalarni g'oyadan yakuniy mahsulotgacha yetkazishni va texnik hamda yumshoq ko'nikmalarimni (soft skills) muntazam oshirib borishni yoqtiraman.",
+            "Kod yozishdan bo'sh vaqtimda yangi vositalarni o'rganaman, texnologik hamjamiyatlarni kuzataman va mahoratimni oshirish uchun shaxsiy loyihalar ustida ishlayman."
+        ],
+        "innertitle": "Men haqimda qisqacha faktlar:",
+        "innertexts": [
+            "Frontend dasturchi",
+            "PDP maktabi bitiruvchisi (2 yil)",
+            "React va zamonaviy JavaScript bo'yicha kuchli bilim",
+            "Doimiy izlanish va o'rganishda"
+        ],
+        "lasttext": "Men frilans imkoniyatlari va qiziqarli loyihalar uchun ochiqman — men bilan bog'laning. Keling, birgalikda ajoyib narsalar yarataylik!"
+    },
+    "foot": {
+        "title": "Bog'lanish",
+        "desc": "Keyingi qadam nima? Agar sizga dasturchi kerak bo'lsa, savollaringiz bo'lsa yoki shunchaki tanishmoqchi bo'lsangiz, menga murojaat qilishingiz mumkin.",
+        "social": "Meni ushbu platformalardan ham topishingiz mumkin!",
+        "sub": "2026 | ❤️️ bilan loyihalandi va kodlandi:"
+    }
+}

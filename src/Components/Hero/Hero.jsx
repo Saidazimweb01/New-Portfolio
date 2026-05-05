@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import "./Hero.css"
 import location from "../../images/location.svg"
 import locationBlack from "../../images/location-black.svg"
@@ -9,103 +9,142 @@ import user from "../../images/user.png"
 import tg from "../../images/tg.png"
 import tgBlack from "../../images/tg-black.png"
 import TextType from '../TextType/TextType'
-import SplitText from '../SplitText/SplitText'
-import BlurText from '../BlurText/BlurText'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+
 function Hero() {
-    const handleAnimationComplete = () => {
-        console.log('All letters have animated!');
-    };
+  const { t } = useTranslation()
+  const mode = useSelector((state) => state.mode)
+  const heroTitles = t('hero.title', { returnObjects: true })
 
-    const handleAnimationCompletee = () => {
-        console.log('Animation completed!');
-    };
+  // Stagger animate ref elements
+  const staggerRefs = useRef([])
+  useEffect(() => {
+    staggerRefs.current.forEach((el, i) => {
+      if (!el) return
+      el.style.animationDelay = `${0.15 + i * 0.12}s`
+      el.classList.add('hero__stagger')
+    })
+  }, [])
 
+  const addRef = (el) => {
+    if (el && !staggerRefs.current.includes(el)) staggerRefs.current.push(el)
+  }
 
-    const mode = useSelector((state) => state.mode)
-    const dispatch = useDispatch()
-    return (
-        <>
-            <section className={mode ? "hero-black" : "hero"}>
-                <div className="container">
-                    <div className="hero__main">
-                        <div className="hero__box">
-                            <h1 className={mode ? "hero__title-black" : "hero__title"}> <TextType
-                                text={["Hi I'm Said", "I'm developer", "I love clean code"]}
-                                typingSpeed={65}
-                                pauseDuration={1500}
-                                showCursor
-                                cursorCharacter="|"
-                                texts={["Welcome to React Bits! Good to see you!", "Build some amazing experiences!"]}
-                                deletingSpeed={40}
-                                variableSpeedEnabled={false}
-                                variableSpeedMin={60}
-                                variableSpeedMax={120}
-                                cursorBlinkDuration={0.5}
-                            /></h1>
-                            <p className={mode ? "hero__info-black" : "hero__info"}><SplitText
-                                text="I'm a Frontend developer (React.js, Typescript, Js ....) with a focus on creating (and occasionally designing)
-                                exceptional digital experiences that are fast,
-                                accessible, visually appealing, and responsive. Even though
-                                I have been creating web applications for over 2 years, I still love it
-                                as if it was something new."
-                                className="text-2xl font-semibold text-center"
-                                delay={20}
-                                duration={0.5}
-                                ease="power3.out"
-                                splitType="chars"
-                                from={{ opacity: 0, y: 40 }}
-                                to={{ opacity: 1, y: 0 }}
-                                threshold={0.1}
-                                rootMargin="-100px"
-                                textAlign="left"
-                                onLetterAnimationComplete={handleAnimationComplete}
-                                showCallback
-                            /></p>
-                            <div className="hero__inner">
-                                <a target='_blank' className={mode ? "hero__location-black" : "hero__location"} href="https://maps.app.goo.gl/taq9DvvyTBVWE9Xf9">
-                                    <img src={mode ? locationBlack : location} alt="" />
+  const currentGit = mode ? git : gitBlack
+  const currentTg  = mode ? tg  : tgBlack
+  const currentLoc = mode ? locationBlack : location
 
-                                    <BlurText
-                                        text="Uzbekistan, Tashkent"
-                                        delay={80}
-                                        animateBy="words"
-                                        direction="bottom"
-                                        onAnimationComplete={handleAnimationCompletee}
-                                        className="text-2xl mb-8"
-                                    />
-                                </a>
-                                <a className={mode ? "hero__active-black" : "hero__active"} href="#contact">
-                                    <img src={active} alt="" />
-                                    <BlurText
-                                        text="Available for new projects"
-                                        delay={80}
-                                        animateBy="words"
-                                        direction="bottom"
-                                        onAnimationComplete={handleAnimationCompletee}
-                                        className="text-2xl mb-8"
-                                    />
+  return (
+    <section className={`hero${mode ? ' hero--light' : ''}`}>
+      <div className="container">
+        <div className="hero__main">
 
-                                </a>
-                            </div>
+          {/* ── LEFT CONTENT ─────────────────── */}
+          <div className="hero__box">
 
-                            <div className='hero__media'>
-                                <a target='_blank' href="https://github.com/Saidazimweb01">
-                                    <img src={mode ? gitBlack : git} alt="" />
-                                </a>
-                                <a target='_blank' href="https://t.me/Akh_deff">
-                                    <img width={27} src={mode ? tgBlack : tg} alt="" />
-                                </a>
-                            </div>
+            {/* Badge */}
+            <div className="hero__badge" ref={addRef}>
+              <span className="hero__badge-dot" />
+              {t('hero.available', 'Available for work')}
+            </div>
 
-                        </div>
+            {/* Title */}
+            <h1 className="hero__title">
+              <TextType
+                text={Array.isArray(heroTitles) ? heroTitles : ["Hi I'm Said"]}
+                typingSpeed={65}
+                pauseDuration={1500}
+                showCursor
+                cursorCharacter="|"
+                deletingSpeed={40}
+                variableSpeedEnabled={false}
+                cursorBlinkDuration={0.5}
+              />
+            </h1>
 
-                        <img width={200} src={user} alt="" />
-                    </div>
-                </div>
-            </section>
-        </>
-    )
+            {/* Description */}
+            <p className="hero__info" ref={addRef}>
+              {t('hero.text')}
+            </p>
+
+            {/* Location + Status */}
+            <div className="hero__inner" ref={addRef}>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                className="hero__chip"
+                href="https://maps.app.goo.gl/taq9DvvyTBVWE9Xf9"
+              >
+                <img src={currentLoc} alt="" className="hero__chip-icon" />
+                {t('hero.loc')}
+              </a>
+              <a className="hero__chip hero__chip--green" href="#contact">
+                <img src={active} alt="" className="hero__chip-icon" />
+                {t('hero.project')}
+              </a>
+            </div>
+
+            {/* Stats row */}
+            <div className="hero__stats" ref={addRef}>
+              <div className="hero__stat">
+                <span className="hero__stat-num">2+</span>
+                <span className="hero__stat-label">{t('hero.experience', "Yil tajriba")}</span>
+              </div>
+              <div className="hero__stat-divider" />
+              <div className="hero__stat">
+                <span className="hero__stat-num">20+</span>
+                <span className="hero__stat-label">{t('hero.projects', "Loyihalar")}</span>
+              </div>
+             
+             
+            </div>
+
+            {/* Social + CTA */}
+            <div className="hero__bottom" ref={addRef}>
+              <div className="hero__media">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/Saidazimweb01"
+                  className="hero__social-btn"
+                  title="GitHub"
+                >
+                  <img src={currentGit} alt="GitHub" />
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://t.me/Akh_deff"
+                  className="hero__social-btn"
+                  title="Telegram"
+                >
+                  <img width={22} src={currentTg} alt="Telegram" />
+                </a>
+              </div>
+              <a href="#contact" className="hero__cta">
+                {t('hero.contact', "Bog'lanish")}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
+
+          </div>
+
+          {/* ── RIGHT — AVATAR ───────────────── */}
+          <div className="hero__avatar-wrap">
+            <div className="hero__avatar-ring" />
+            <img src={user} alt="avatar" className="hero__avatar" />
+            {/* Floating skill tags */}
+            <div className="hero__float hero__float--tl">React</div>
+            <div className="hero__float hero__float--br">TypeScript</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default Hero
