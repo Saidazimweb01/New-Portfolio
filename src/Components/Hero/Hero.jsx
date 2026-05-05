@@ -46,7 +46,7 @@ function Hero() {
             {/* Badge */}
             <div className="hero__badge" ref={addRef}>
               <span className="hero__badge-dot" />
-              {t('hero.available', 'Available for work')}
+              {t('hero.project', 'Available for work')}
             </div>
 
             {/* Title */}
